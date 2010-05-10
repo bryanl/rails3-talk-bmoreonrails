@@ -1,0 +1,15 @@
+<% url = post_url(@post, 
+                  :host => "b.example.com") %>
+
+<html>
+	<body>
+		<p>Hello my friend <%= @address%></p>
+		<p>
+			We have a new blog post titled, 
+			"<%= @post.title %>", that we're 
+			sure you'll enjoy reading.  Why not 
+			read it at 
+			<%= link_to url, url %>.
+		</p>
+	</body>
+</html>
