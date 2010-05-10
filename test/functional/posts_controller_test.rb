@@ -17,4 +17,11 @@ class PostsControllerTest < ActionController::TestCase
     post :create
     assert_redirected_to posts_path
   end
+
+  test "view an existing post" do
+    my_post = Factory(:post)
+    get :show, :id => my_post.id
+    assert_response :ok
+    assert_not_nil assigns(:post)
+  end
 end

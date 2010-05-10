@@ -12,3 +12,11 @@ Feature: manage blog
 
     Then I should see "post was created"
     And I should see "A new blog post"
+
+  Scenario: view a blog post
+    Given a post exists with title: "blog post", body: "content"
+    When I go to the home page
+    And I follow "blog post"
+
+    Then I should see "content"
+

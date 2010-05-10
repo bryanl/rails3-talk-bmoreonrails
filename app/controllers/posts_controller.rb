@@ -14,4 +14,8 @@ class PostsController < ApplicationController
       flash[:notice] = "post was created"
     end
   end
+
+  def show
+    @post = Post.find params[:id]
+  end
 end
