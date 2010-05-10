@@ -1,8 +1,10 @@
 require 'test_helper'
 
 class PostTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+  test "a post has many comments" do
+    post = Factory(:post)
+    comment = Factory(:comment, :post => post)
+    assert post.comments.include?(comment), "should include this comment"
   end
+
 end

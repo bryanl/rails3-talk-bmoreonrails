@@ -23,5 +23,6 @@ class PostsControllerTest < ActionController::TestCase
     get :show, :id => my_post.id
     assert_response :ok
     assert_not_nil assigns(:post)
+    assert_not_nil assigns(:comment)
   end
 end

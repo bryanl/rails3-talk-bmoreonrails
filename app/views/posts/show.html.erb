@@ -3,3 +3,31 @@
 <%= div_for @post do %>
   <%= @post.body %>
 <% end %>
+
+<% if @post.comments %>
+  <div id="comments" do %>
+      <% @post.comments.each do |comment| %>
+        <%= div_for comment do %>
+          <dl>
+            <dt>Author</dt>
+            <dd><%= comment.author %></td> 
+            <dt>Comment</dt>
+            <dd><%= comment.body %></td> 
+          </dl>
+        <% end %>
+      <% end %>
+  </div>
+<% end %>
+
+<div id="comment">
+  <%= semantic_form_for @comment, :url => [@post, :comments] do |f| %>
+    <%= f.inputs do %>
+      <%= f.input :email %>
+      <%= f.input :author, :label => "Name" %>
+      <%= f.input :body, :label => "Comment" %>
+    <% end %>
+    <%= f.buttons do %>
+      <%= f.commit_button :label => "Submit my comment" %>
+    <% end %>
+  <% end %>
+</div>
