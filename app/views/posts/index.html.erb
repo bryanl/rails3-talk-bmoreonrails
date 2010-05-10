@@ -1,0 +1,13 @@
+<% if flash[:notice] %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<ul>
+  <% @posts.each do |post|%>
+    <li><%= post.title %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Create a new post", new_post_path %>
