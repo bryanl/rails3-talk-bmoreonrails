@@ -1,0 +1,5 @@
+$('#quick_post').slideUp('slow');
+$('#quick_post form')[ 0 ].reset();
+$('#posts').append("<li><%= escape_javascript(link_to @post.title, [@post]) %>");
+$('#posts li:last').effect("highlight", {}, 3000);
+

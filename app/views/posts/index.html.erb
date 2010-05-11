@@ -4,7 +4,19 @@
   </div>
 <% end %>
 
-<ul>
+<div id="quick_post">
+  <%= semantic_form_for Post.new, :remote => true do |f| %>
+    <%= f.inputs do %>
+      <%= f.input :title %>
+      <%= f.input :body %>
+    <% end %>
+    <%= f.buttons do %>
+      <%= f.commit_button "Create", :button_html => {:disable_with => "Creating..."} %>
+    <% end %>
+  <% end %>
+</div>
+
+<ul id="posts">
   <% @posts.each do |post|%>
     <li><%= link_to post.title, [post] %></li>
   <% end %>

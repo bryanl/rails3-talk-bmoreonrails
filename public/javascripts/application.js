@@ -1,2 +1,12 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+$(function() {
+  $(document).ready(function() {
+    $('#quick_post')
+      .hide()
+      .before('<a href="#" id="quick_post_toggle">Quick Post</a>');
+
+    $('#quick_post_toggle').click(function(){
+      $('#quick_post').toggle();
+      return false;
+    });
+  });
+});

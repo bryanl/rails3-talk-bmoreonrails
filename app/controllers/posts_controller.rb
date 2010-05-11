@@ -10,8 +10,11 @@ class PostsController < ApplicationController
   def create
     @post = Post.new params[:post]
     if @post.save
-      redirect_to posts_path
       flash[:notice] = "post was created"
+      respond_to do |wants|
+        wants.html { redirect_to posts_path }
+        wants.js
+      end
     end
   end
 

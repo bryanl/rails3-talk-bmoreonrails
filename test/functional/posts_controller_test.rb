@@ -14,8 +14,13 @@ class PostsControllerTest < ActionController::TestCase
   end
 
   test "create a new post" do
-    post :create
+    post :create, :post => Factory.attributes_for(:post)
     assert_redirected_to posts_path
+  end
+
+  test "create over ajax" do
+    post :create, :post => Factory.attributes_for(:post), :format => :js
+    assert_response :ok
   end
 
   test "view an existing post" do
