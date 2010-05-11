@@ -1,8 +1,11 @@
 class PostsController < ApplicationController
-  def index
-    @posts = Post.all
-  end
+  respond_to :html
+  respond_to :rss, :only => [:index]
 
+  def index
+     respond_with(@posts = Post.all)
+  end
+  
   def new
     @post = Post.new
   end
